@@ -137,7 +137,7 @@ async def click(message: types.Message):
 
     balance = tuple(await conn.fetchrow(f"select balance from users where id = {message.chat.id}"))[0]
 
-    await bot.send_message(message.chat.id, f'Ваш баланс = {round(int(balance), 2)} G', parse_mode="HTML")
+    await bot.send_message(message.chat.id, f'Ваш баланс = {round(float(balance), 2)} G', parse_mode="HTML")
 
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
