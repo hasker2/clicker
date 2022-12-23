@@ -3,13 +3,10 @@ from aiogram import Bot, types
 from aiogram.dispatcher import Dispatcher
 from aiogram.utils import executor
 from aiogram.utils.deep_linking import get_start_link, decode_payload
-import aiopg
 import random
 import os
-import aioschedule
 import asyncio
 import asyncpg
-import psycopg2
 from aiogram.utils.exceptions import Throttled
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
