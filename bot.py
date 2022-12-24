@@ -52,7 +52,7 @@ async def process_start_command(message: types.Message):
 
         kb = types.InlineKeyboardMarkup(row_width=1)
         btn1 = types.InlineKeyboardButton(text='Спонсор №1️⃣', url='https://t.me/standoffsila')
-        btn2 = types.InlineKeyboardButton(text='Спонсор №1️⃣', url='https://t.me/tgbotdevchnl')
+        btn2 = types.InlineKeyboardButton(text='Спонсор №2️⃣', url='https://t.me/tgbotdevchnl')
         btn3 = types.InlineKeyboardButton(text='✅ПРОВЕРИТЬ✅', callback_data='checksubs')
         kb.row(btn1, btn2)
         kb.add(btn3)
