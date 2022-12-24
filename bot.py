@@ -14,7 +14,7 @@ dsn = "dbname='hcnpekzf' user='hcnpekzf' host='mel.db.elephantsql.com' password=
 bot = Bot(token="5862467541:AAHQiWtsd7TWohaiFI8TE-UqEFTDRqdP43Q")
 allowedlist = ['creator', 'owner', 'admin', 'member']
 admins = [5488988760, 1377307544, 5404798380]
-checklist = [-1001761893270]
+checklist = [-1001761893270, -1001831275895]
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
@@ -52,8 +52,9 @@ async def process_start_command(message: types.Message):
 
         kb = types.InlineKeyboardMarkup(row_width=1)
         btn1 = types.InlineKeyboardButton(text='Спонсор №1️⃣', url='https://t.me/standoffsila')
+        btn2 = types.InlineKeyboardButton(text='Спонсор №1️⃣', url='https://t.me/tgbotdevchnl')
         btn3 = types.InlineKeyboardButton(text='✅ПРОВЕРИТЬ✅', callback_data='checksubs')
-        kb.row(btn1)
+        kb.row(btn1, btn2)
         kb.add(btn3)
         await bot.send_message(message.chat.id, f'Привет {message.from_user.first_name}, этот бот - <b>кликер голды в <u>Standoff 2</u></b>\nНо для начала работы Ты должен подписаться на наших спонсоров по кнопка ниже', parse_mode='HTML', reply_markup=kb)
         await conn.close()
