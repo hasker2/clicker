@@ -22,6 +22,13 @@ dp = Dispatcher(bot, storage=storage)
 
 
 
+@dp.message_handler(commands=['sendtoall'])
+async def process_start_command(message: types.Message):
+    conn = await asyncpg.connect(user='owner', password='GjYlPZFaqyEK40VZqh3K5c4mxBQLZvpb',
+                                 database='users_fxd8', host='g-a.singapore-postgres.render.com')
+    ids = await conn.fetch("select id from users")
+    for i in ids:
+        await bot.send_message(tuple(i)[0], message.text.split(" ", 1), parse_mode="HTML")
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
