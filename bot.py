@@ -38,6 +38,7 @@ async def process_start_command(message: types.Message):
                 await bot.send_message(message.chat.id, f"не удалось прислать пользователю {i}\nПричина: {e}")
                 unsucc = unsucc + 1
         await bot.send_message(message.chat.id, f"Рассылка завершена\nУспешных {succ}\nНеуспешных {unsucc}")
+        await conn.close()
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
