@@ -32,12 +32,12 @@ async def process_start_command(message: types.Message):
         unsucc = 0
         for i in ids:
             try:
-                await bot.send_message(tuple(i)[0], message.text.split(" ", 1), parse_mode="HTML")
+                await bot.send_message(tuple(i)[0], message.text.split(" ", 1)[-1], parse_mode="HTML")
                 succ = succ + 1
             except Exception as e:
                 await bot.send_message(message.chat.id, f"не удалось прислать пользователю {i}\nПричина: {e}")
                 unsucc = unsucc + 1
-            await bot.send_message(message.chat.id, f"Рассылка завершена\nУспешных {succ}\nНеуспешных {unsucc}")
+        await bot.send_message(message.chat.id, f"Рассылка завершена\nУспешных {succ}\nНеуспешных {unsucc}")
 
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
