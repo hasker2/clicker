@@ -11,10 +11,10 @@ from aiogram.utils.exceptions import Throttled
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 dsn = "dbname='hcnpekzf' user='hcnpekzf' host='mel.db.elephantsql.com' password='cEgK9xYY5la2HnxsLEg6A4c4sTcHYMMV'"
-bot = Bot(token="5862467541:AAFnIYv2VCwJICMMhBZwyqRTeYlNP_sn7cA")
+bot = Bot(token="5870388265:AAEqj9y1k3b-g1nkOpoJGQytQFJ7h147p88")
 allowedlist = ['creator', 'owner', 'admin', 'member']
-admins = [5488988760, 1377307544, 5404798380]
-checklist = [-1001761893270]
+admins = [1377307544]
+checklist = [-1001809539373]
 storage = MemoryStorage()
 dp = Dispatcher(bot, storage=storage)
 
@@ -68,7 +68,7 @@ async def process_start_command(message: types.Message):
     if False in checkedlist:
 
         kb = types.InlineKeyboardMarkup(row_width=1)
-        btn1 = types.InlineKeyboardButton(text='Спонсор №1️⃣', url='https://t.me/standoffsila')
+        btn1 = types.InlineKeyboardButton(text='Спонсор №1️⃣', url='https://t.me/so2promos_free')
         btn3 = types.InlineKeyboardButton(text='✅ПРОВЕРИТЬ✅', callback_data='checksubs')
         kb.row(btn1)
         kb.add(btn3)
