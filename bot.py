@@ -94,18 +94,29 @@ async def process_start_command(message: types.Message):
 async def checksubs(callback: types.CallbackQuery):
     print(callback)
     try:
-        first = await bot.get_chat_member(-1001761893270, callback.from_user.id)
-        if first.status in allowedlist:
-            await bot.delete_message(chat_id=callback.message.chat.id, message_id=callback.message.message_id)
-            kb = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-            btn1 = types.KeyboardButton(text='🔥Клик🔥️')
-            btn2 = types.KeyboardButton(text='Баланс💵')
-            btn3 = types.KeyboardButton(text='Вывод💵⬆')
-            btn5 = types.KeyboardButton(text='Отзывы🛒')
-            kb.add(btn1)
-            kb.row(btn2, btn3)
-            kb.row(btn5)
-            await bot.send_message(callback.message.chat.id, 'Спасибо за подписку\nТеперь вам доступны все функции бота\n<i>(клавиатура может появиться за пару секунд)</i>', reply_markup=kb, parse_mode='HTML')
+                checkedlist = []
+        for i in checklist:
+            usersub = await bot.get_chat_member(i, callback.message.chat.id)
+            print(usersub)
+            if usersub.status in allowedlist:
+                print(usersub.status)
+                checkedlist.append(True)
+            else:
+                checkedlist.append(False)
+            print(checkedlist)
+            if False in checkedlist:
+                await bot.answer_callback_query(callback.id, '⚠️Вы не подписались на каналы выше⚠️', show_alert=True)
+            else:
+                await bot.delete_message(chat_id=callback.message.chat.id, message_id=callback.message.message_id)
+                kb = types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
+                btn1 = types.KeyboardButton(text='🔥Клик🔥️')
+                btn2 = types.KeyboardButton(text='Баланс💵')
+                btn3 = types.KeyboardButton(text='Вывод💵⬆')
+                btn5 = types.KeyboardButton(text='Отзывы🛒')
+                kb.add(btn1)
+                kb.row(btn2, btn3)
+                kb.row(btn5)
+                await bot.send_message(callback.message.chat.id, 'Спасибо за подписку\nТеперь вам доступны все функции бота\n<i>(клавиатура может появиться за пару секунд)</i>', reply_markup=kb, parse_mode='HTML')
         else:
             await bot.answer_callback_query(callback.id, '⚠️Вы не подписались на каналы выше⚠️', show_alert=True)
     except:
