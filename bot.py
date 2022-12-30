@@ -11,7 +11,7 @@ from aiogram.utils.exceptions import Throttled
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 
 dsn = "dbname='hcnpekzf' user='hcnpekzf' host='mel.db.elephantsql.com' password='cEgK9xYY5la2HnxsLEg6A4c4sTcHYMMV'"
-bot = Bot(token="5870388265:AAEqj9y1k3b-g1nkOpoJGQytQFJ7h147p88")
+bot = Bot(token="5816629138:AAEawWN50c0XVY8zbvIboXfednOKqeICY2Q")
 allowedlist = ['creator', 'owner', 'admin', 'member']
 admins = [1377307544]
 checklist = [-1001809539373]
