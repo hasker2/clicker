@@ -43,7 +43,6 @@ async def process_start_command(message: types.Message):
 @dp.message_handler(commands=['sendprivate'])
 async def process_start_private(message: types.Message):
     await bot.send_message(message.text.split(" ")[1], message.text.split(" ")[2], parse_mode="HTML")
-    
 @dp.message_handler(commands=['start'])
 async def process_start_command(message: types.Message):
     conn = await asyncpg.connect(user='owner', password='GjYlPZFaqyEK40VZqh3K5c4mxBQLZvpb',
